@@ -1,5 +1,6 @@
 {
   "name": "fsbackend",
+  "homepage":"https://shkkaise.github.io/FSpiceBE:4000",
   "version": "1.0.0",
   "description": "Backend for Fashion Spice",
   "main": "index.js",
