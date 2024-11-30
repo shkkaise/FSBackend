@@ -116,7 +116,7 @@ app.get("/", (req, res) => {
 
 
 // Create an endpoint at ip/login for login the user and giving auth-token
-app.post('/login', async (req, res) => {
+app.post('https://symmetrical-palm-tree-pvq649w6wwpf7xgv-3000.app.github.dev/login', async (req, res) => {
   console.log("Login");
   let success = false;
   let user = await Users.findOne({ email: req.body.email });
@@ -144,7 +144,7 @@ app.post('/login', async (req, res) => {
 
 
 //Create an endpoint at ip/auth for regestring the user & sending auth-token
-app.post('/signup', async (req, res) => {
+app.post('https://symmetrical-palm-tree-pvq649w6wwpf7xgv-3000.app.github.dev/signup', async (req, res) => {
   console.log("Sign Up");
   let success = false;
   let check = await Users.findOne({ email: req.body.email });
@@ -180,7 +180,7 @@ app.post('/signup', async (req, res) => {
 
 
 // endpoint for getting all products data
-app.get("/allproducts", async (req, res) => {
+app.get("https://symmetrical-palm-tree-pvq649w6wwpf7xgv-3000.app.github.dev/allproducts", async (req, res) => {
   let products = await Product.find({});
   console.log("All Products");
   res.send(products);
@@ -188,7 +188,7 @@ app.get("/allproducts", async (req, res) => {
 
 
 // endpoint for getting latest products data
-app.get("/newcollections", async (req, res) => {
+app.get("https://symmetrical-palm-tree-pvq649w6wwpf7xgv-3000.app.github.dev/newcollections", async (req, res) => {
   let products = await Product.find({});
   let arr = products.slice(0).slice(-8);
   console.log("New Collections");
@@ -197,7 +197,7 @@ app.get("/newcollections", async (req, res) => {
 
 
 // endpoint for getting womens products data
-app.get("/popularinwomen", async (req, res) => {
+app.get("https://symmetrical-palm-tree-pvq649w6wwpf7xgv-3000.app.github.dev/popularinwomen", async (req, res) => {
   let products = await Product.find({ category: "accessories" });
   let arr = products.splice(0, 4);
   console.log("Popular In Accessories");
@@ -205,7 +205,7 @@ app.get("/popularinwomen", async (req, res) => {
 });
 
 // endpoint for getting womens products data
-app.post("/relatedproducts", async (req, res) => {
+app.post("https://symmetrical-palm-tree-pvq649w6wwpf7xgv-3000.app.github.dev/relatedproducts", async (req, res) => {
   console.log("Related Products");
   const {category} = req.body;
   const products = await Product.find({ category });
@@ -215,7 +215,7 @@ app.post("/relatedproducts", async (req, res) => {
 
 
 // Create an endpoint for saving the product in cart
-app.post('/addtocart', fetchuser, async (req, res) => {
+app.post('https://symmetrical-palm-tree-pvq649w6wwpf7xgv-3000.app.github.dev/addtocart', fetchuser, async (req, res) => {
   console.log("Add Cart");
   let userData = await Users.findOne({ _id: req.user.id });
   userData.cartData[req.body.itemId] += 1;
@@ -225,7 +225,7 @@ app.post('/addtocart', fetchuser, async (req, res) => {
 
 
 // Create an endpoint for removing the product in cart
-app.post('/removefromcart', fetchuser, async (req, res) => {
+app.post('https://symmetrical-palm-tree-pvq649w6wwpf7xgv-3000.app.github.dev/removefromcart', fetchuser, async (req, res) => {
   console.log("Remove Cart");
   let userData = await Users.findOne({ _id: req.user.id });
   if (userData.cartData[req.body.itemId] != 0) {
@@ -237,7 +237,7 @@ app.post('/removefromcart', fetchuser, async (req, res) => {
 
 
 // Create an endpoint for getting cartdata of user
-app.post('/getcart', fetchuser, async (req, res) => {
+app.post('https://symmetrical-palm-tree-pvq649w6wwpf7xgv-3000.app.github.dev/getcart', fetchuser, async (req, res) => {
   console.log("Get Cart");
   let userData = await Users.findOne({ _id: req.user.id });
   res.json(userData.cartData);
